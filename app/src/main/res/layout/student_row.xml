@@ -1,100 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/space_8"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/student_name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="@dimen/space_8" />
 
-    <TextView
-        android:id="@+id/tvNameValue"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginLeft="@dimen/space_8"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/tvName"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="Chithra" />
-    <TextView
-        android:id="@+id/tvAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/student_age"
-        android:layout_marginTop="@dimen/space_8"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+    <data>
+        <variable
+            name="student"
+            type="com.example.studentregistrstionapp.data.Student" />
+    </data>
 
-    <TextView
-        android:id="@+id/tvAgeValue"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginLeft="@dimen/space_8"
-        app:layout_constraintTop_toBottomOf="@+id/tvName"
-        app:layout_constraintLeft_toRightOf="@+id/tvAge"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="15 yrs"/>
-
-    <TextView
-        android:id="@+id/tvGender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/student_gender"
-        android:layout_marginTop="@dimen/space_8"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAge" />
-
-    <TextView
-        android:id="@+id/tvGenderValue"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginLeft="@dimen/space_8"
-        app:layout_constraintTop_toBottomOf="@+id/tvAge"
-        app:layout_constraintLeft_toRightOf="@+id/tvGender"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="Female"/>
-
-    <TextView
-        android:id="@+id/tvStandard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/student_standard"
-        android:layout_marginTop="@dimen/space_8"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGender" />
-
-    <TextView
-        android:id="@+id/tvStandardValue"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginLeft="@dimen/space_8"
-        app:layout_constraintTop_toBottomOf="@+id/tvGender"
-        app:layout_constraintLeft_toRightOf="@+id/tvStandard"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="10th"/>
-
-
-
-    <View
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_1"
-        android:layout_marginTop="@dimen/space_8"
-        android:background="@color/purple_700"
-        app:layout_constraintTop_toBottomOf="@+id/tvStandardValue"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_8">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:text="@string/student_name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvNameValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_marginTop="@dimen/space_8"
+            android:text="@{student.name}"
+            app:layout_constraintLeft_toRightOf="@+id/tvName"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Chithra" />
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:text="@string/student_age"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+        <TextView
+            android:id="@+id/tvAgeValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_marginTop="@dimen/space_8"
+            android:text="@{``+ student.age}"
+            app:layout_constraintLeft_toRightOf="@+id/tvAge"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="15 yrs" />
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:text="@string/student_gender"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAge" />
+
+        <TextView
+            android:id="@+id/tvGenderValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{student.gender}"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_marginTop="@dimen/space_8"
+            app:layout_constraintLeft_toRightOf="@+id/tvGender"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAge"
+            tools:text="Female" />
+
+        <TextView
+            android:id="@+id/tvStandard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:text="@string/student_standard"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvGender" />
+
+        <TextView
+            android:id="@+id/tvStandardValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_marginTop="@dimen/space_8"
+            android:text="@{``+student.standard}"
+            app:layout_constraintLeft_toRightOf="@+id/tvStandard"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvGender"
+            tools:text="10th" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_1"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@color/purple_700"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvStandardValue" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
