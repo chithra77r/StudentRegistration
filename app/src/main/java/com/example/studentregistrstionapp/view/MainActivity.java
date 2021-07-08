@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements Communicator {
     public void callFragment(int type) {
         switch (type) {
             case 0:
-                getSupportFragmentManager().beginTransaction().add(R.id.fcvFrag,new RegistrationFrag()).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.fcvFrag,new RegistrationFrag()).addToBackStack("null").commit();
                 break;
             case 1:
                 getSupportFragmentManager().beginTransaction().add(R.id.fcvFrag,new StudentListFrag()).addToBackStack("null").commit();
